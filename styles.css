@@ -361,9 +361,16 @@ html {
 .services {
     padding: 100px 0;
     background: linear-gradient(180deg, #e1f5fe 0%, #f8fafc 100%);
+    position: relative;
 }
 
 /* Pseudo-élément services supprimé pour fluidité */
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
 
 .section-header {
     text-align: center;

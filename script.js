@@ -142,17 +142,17 @@ const statsObserver = new IntersectionObserver((entries) => {
             const statNumbers = entry.target.querySelectorAll('.stat h3');
             statNumbers.forEach(stat => {
                 const text = stat.textContent;
-                if (text === '0€') {
-                    // Animation pour 0€ - commence à 100 et descend à 0
-                    stat.textContent = '100€';
-                    let count = 100;
+                if (text === '3028') {
+                    // Animation pour 3028 hectares - compte de 0 à 3028
+                    stat.textContent = '0';
+                    let count = 0;
                     const interval = setInterval(() => {
-                        count -= 2;
-                        stat.textContent = count + '€';
-                        if (count <= 0) {
+                        count += 30;
+                        if (count >= 3028) {
+                            count = 3028;
                             clearInterval(interval);
-                            stat.textContent = '0€';
                         }
+                        stat.textContent = count;
                     }, 20);
                 } else if (text === '100%') {
                     // Animation pour 100%

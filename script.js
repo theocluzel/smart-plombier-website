@@ -142,7 +142,7 @@ const statsObserver = new IntersectionObserver((entries) => {
             const statNumbers = entry.target.querySelectorAll('.stat h3');
             statNumbers.forEach(stat => {
                 const text = stat.textContent;
-                if (text === '0') {
+                if (text === '0€') {
                     // Animation pour 0€ - commence à 100 et descend à 0
                     stat.textContent = '100€';
                     let count = 100;
@@ -183,7 +183,10 @@ const statsObserver = new IntersectionObserver((entries) => {
             statsObserver.unobserve(entry.target);
         }
     });
-}, { threshold: 0.5 });
+}, { 
+    threshold: 0.3,  // Réduit pour mobile
+    rootMargin: '0px 0px -100px 0px'  // Se déclenche plus tôt
+});
 
 // Observer la section about pour les statistiques
 const aboutSection = document.querySelector('.about');

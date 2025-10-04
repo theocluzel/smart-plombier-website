@@ -403,7 +403,6 @@ html {
 .section-header h2 {
     font-size: 2.5rem;
     font-weight: 700;
-    color: #1e293b;
     background: linear-gradient(135deg, #4fc3f7 0%, #29b6f6 50%, #03a9f4 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -514,7 +513,6 @@ html {
 .about-text h2 {
     font-size: 2.5rem;
     font-weight: 700;
-    color: #1e293b;
     background: linear-gradient(135deg, #4fc3f7 0%, #29b6f6 50%, #03a9f4 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -1306,7 +1304,6 @@ html {
     .section-header h2 {
         font-size: 1.8rem;
         line-height: 1.2;
-        color: #1e293b;
         background: linear-gradient(135deg, #4fc3f7 0%, #29b6f6 50%, #03a9f4 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;

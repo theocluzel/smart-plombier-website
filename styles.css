@@ -195,6 +195,7 @@ html {
     background: linear-gradient(135deg, #4fc3f7 0%, #29b6f6 25%, #03a9f4 50%, #81d4fa 75%, #e1f5fe 100%);
     color: white;
     position: relative;
+    padding: 80px 0;
 }
 
 /* Pseudo-éléments hero supprimés pour éliminer le tremblement */
@@ -356,7 +357,7 @@ html {
 
 /* Services Section */
 .services {
-    padding: 100px 0;
+    padding: 80px 0;
     background: linear-gradient(180deg, #e1f5fe 0%, #f8fafc 100%);
     position: relative;
 }
@@ -371,7 +372,8 @@ html {
 
 .section-header {
     text-align: center;
-    margin-bottom: 4rem;
+    margin-bottom: 3rem;
+    padding: 0 20px;
 }
 
 .section-header h2 {
@@ -390,18 +392,19 @@ html {
 
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
     max-width: 1200px;
     margin: 0 auto;
+    padding: 0 20px;
 }
 
 .service-card {
     background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
-    padding: 2rem;
-    border-radius: 15px;
+    padding: 2.5rem;
+    border-radius: 20px;
     text-align: center;
-    box-shadow: 0 4px 20px rgba(79, 195, 247, 0.1);
+    box-shadow: 0 8px 30px rgba(79, 195, 247, 0.15);
     transition: all 0.3s ease;
     border: 1px solid rgba(79, 195, 247, 0.2);
     position: relative;
@@ -887,7 +890,7 @@ html {
     /* Hero Section Mobile Redesignée */
     .hero {
         min-height: 100vh;
-        padding: 6rem 0 4rem;
+        padding: 5rem 0 3rem;
     }
 
     .hero-container {
@@ -1011,7 +1014,7 @@ html {
 
     /* Services Section Mobile - Design Élégant */
     .services {
-        padding: 4rem 0;
+        padding: 3rem 0;
     }
 
     .services-grid {

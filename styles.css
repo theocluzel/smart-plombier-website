@@ -551,19 +551,28 @@ html {
 
 .about-stats {
     display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 2rem;
+    margin-top: 3rem;
 }
 
 .stat {
     text-align: center;
-    padding: 2rem;
-    background: #f8fafc;
-    border-radius: 15px;
-    border: 1px solid #e2e8f0;
+    padding: 2.5rem;
+    background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+    border-radius: 20px;
+    border: 1px solid rgba(79, 195, 247, 0.2);
+    box-shadow: 0 8px 25px rgba(79, 195, 247, 0.1);
+    transition: all 0.3s ease;
+}
+
+.stat:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(79, 195, 247, 0.2);
 }
 
 .stat h3 {
-    font-size: 3rem;
+    font-size: 3.5rem;
     font-weight: 700;
     color: #2563eb;
     margin-bottom: 0.5rem;
@@ -572,6 +581,7 @@ html {
 .stat p {
     color: #64748b;
     font-weight: 500;
+    font-size: 1.1rem;
 }
 
 /* Contact Section */
@@ -947,6 +957,20 @@ html {
     .about-content {
         grid-template-columns: 1fr;
         gap: 2rem;
+    }
+    
+    .about-stats {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        margin-top: 2rem;
+    }
+    
+    .stat {
+        padding: 2rem;
+    }
+    
+    .stat h3 {
+        font-size: 3rem;
     }
 
     /* Contact Section Mobile - Design Amélioré */

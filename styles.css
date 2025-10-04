@@ -356,7 +356,7 @@ html {
 }
 
 
-/* Éléments géométriques professionnels */
+/* Éléments géométriques statiques - Plus de tremblements */
 .geometric-elements {
     position: absolute;
     top: 0;
@@ -369,9 +369,8 @@ html {
 
 .geometric-shape {
     position: absolute;
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    backdrop-filter: blur(20px);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .shape-1 {
@@ -379,8 +378,7 @@ html {
     height: 2px;
     top: 25%;
     left: 15%;
-    animation: geometricMove1 60s ease-in-out infinite;
-    will-change: transform, opacity;
+    transform: rotate(15deg);
 }
 
 .shape-2 {
@@ -388,8 +386,7 @@ html {
     height: 80px;
     top: 60%;
     right: 20%;
-    animation: geometricMove2 80s ease-in-out infinite;
-    will-change: transform, opacity;
+    transform: rotate(-10deg);
 }
 
 .shape-3 {
@@ -397,8 +394,7 @@ html {
     height: 2px;
     bottom: 30%;
     left: 60%;
-    animation: geometricMove3 100s ease-in-out infinite;
-    will-change: transform, opacity;
+    transform: rotate(-20deg);
 }
 
 .shape-4 {
@@ -406,52 +402,7 @@ html {
     height: 60px;
     top: 40%;
     left: 80%;
-    animation: geometricMove4 120s ease-in-out infinite;
-    will-change: transform, opacity;
-}
-
-@keyframes geometricMove1 {
-    0%, 100% { 
-        transform: translateX(0) rotate(0deg);
-        opacity: 0.06;
-    }
-    50% { 
-        transform: translateX(30px) rotate(20deg);
-        opacity: 0.08;
-    }
-}
-
-@keyframes geometricMove2 {
-    0%, 100% { 
-        transform: translateY(0) rotate(0deg);
-        opacity: 0.05;
-    }
-    50% { 
-        transform: translateY(-20px) rotate(-15deg);
-        opacity: 0.07;
-    }
-}
-
-@keyframes geometricMove3 {
-    0%, 100% { 
-        transform: translateX(0) rotate(0deg);
-        opacity: 0.04;
-    }
-    50% { 
-        transform: translateX(-25px) rotate(-20deg);
-        opacity: 0.06;
-    }
-}
-
-@keyframes geometricMove4 {
-    0%, 100% { 
-        transform: translateY(0) rotate(0deg);
-        opacity: 0.03;
-    }
-    50% { 
-        transform: translateY(15px) rotate(15deg);
-        opacity: 0.05;
-    }
+    transform: rotate(25deg);
 }
 
 /* Services Section */
@@ -944,7 +895,7 @@ html {
         backdrop-filter: blur(20px);
         width: 100%;
         text-align: center;
-        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        transition: left 0.3s ease;
         box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
         padding: 3rem 0;
         height: calc(100vh - 70px);
@@ -966,7 +917,6 @@ html {
     .nav-link:hover {
         background: linear-gradient(135deg, rgba(79, 195, 247, 0.1) 0%, rgba(129, 212, 250, 0.1) 100%);
         color: #0369a1;
-        transform: translateX(10px);
     }
 
     .nav-menu.active {
@@ -1139,10 +1089,9 @@ html {
         border: 1px solid rgba(79, 195, 247, 0.2);
         box-shadow: 0 8px 25px rgba(79, 195, 247, 0.1);
         border-radius: 16px;
-        transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        transition: box-shadow 0.3s ease, border-color 0.3s ease;
         position: relative;
         overflow: hidden;
-        will-change: transform;
     }
 
     .service-card::before {
@@ -1157,7 +1106,6 @@ html {
     }
 
     .service-card:hover {
-        transform: translateY(-3px);
         box-shadow: 0 12px 30px rgba(79, 195, 247, 0.15);
         border-color: rgba(79, 195, 247, 0.3);
     }
@@ -1246,7 +1194,6 @@ html {
 
     .footer-section ul li a:hover {
         color: #60a5fa;
-        transform: translateX(5px);
     }
 
     .social-links {

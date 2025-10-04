@@ -53,7 +53,6 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Initialiser les effets fluides pour mobile
     createFluidParticles();
-    initRippleEffects();
 });
 
 // Effet fluide avec particules pour les services mobile
@@ -109,50 +108,6 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-// Effet de ripple au clic sur les cartes de service
-function initRippleEffects() {
-    document.querySelectorAll('.service-card').forEach(card => {
-        card.addEventListener('click', function(e) {
-            const ripple = document.createElement('span');
-            const rect = this.getBoundingClientRect();
-            const size = Math.max(rect.width, rect.height);
-            const x = e.clientX - rect.left - size / 2;
-            const y = e.clientY - rect.top - size / 2;
-            
-            ripple.style.cssText = `
-                position: absolute;
-                width: ${size}px;
-                height: ${size}px;
-                left: ${x}px;
-                top: ${y}px;
-                background: radial-gradient(circle, rgba(79, 195, 247, 0.3) 0%, transparent 70%);
-                border-radius: 50%;
-                transform: scale(0);
-                animation: ripple 0.6s ease-out;
-                pointer-events: none;
-                z-index: 3;
-            `;
-            
-            this.appendChild(ripple);
-            
-            setTimeout(() => {
-                ripple.remove();
-            }, 600);
-        });
-    });
-}
-
-// Animation CSS pour l'effet ripple
-const rippleStyle = document.createElement('style');
-rippleStyle.textContent = `
-    @keyframes ripple {
-        to {
-            transform: scale(2);
-            opacity: 0;
-        }
-    }
-`;
-document.head.appendChild(rippleStyle);
 
 // Initialisation d'EmailJS
 (function() {

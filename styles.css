@@ -242,6 +242,7 @@ html {
 
 .hero-availability {
     margin-bottom: 2rem;
+    display: none; /* Caché par défaut (desktop) */
 }
 
 .availability-badge {
@@ -932,6 +933,16 @@ html {
         gap: 3rem;
         padding: 0 2rem;
         max-width: 100%;
+    }
+    
+    /* Afficher le petit badge sur mobile */
+    .hero-availability {
+        display: block !important;
+    }
+    
+    /* Cacher le carré sur mobile */
+    .hero-image {
+        display: none;
     }
 
     .hero-title {

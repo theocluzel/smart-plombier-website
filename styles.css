@@ -33,43 +33,25 @@ body {
 
 /* Version mobile spécifique - Évite les problèmes de rendu */
 @media (max-width: 768px) {
-    /* Force un rendu stable */
-    * {
-        -webkit-transform: translateZ(0);
-        transform: translateZ(0);
-    }
-    
     html, body {
         -webkit-overflow-scrolling: touch;
         overflow-scrolling: touch;
-        -webkit-transform: translateZ(0);
-        transform: translateZ(0);
     }
     
     .hero {
-        background: #3b82f6 !important;
         -webkit-transform: translateZ(0);
         transform: translateZ(0);
         -webkit-backface-visibility: hidden;
         backface-visibility: hidden;
         will-change: auto;
+        background-attachment: scroll;
     }
     
     .navbar {
-        background: white !important;
-        backdrop-filter: none !important;
         -webkit-transform: translateZ(0);
         transform: translateZ(0);
         will-change: auto;
-    }
-    
-    /* Supprime toutes les animations sur mobile */
-    .hero-content,
-    .hero-title,
-    .hero-subtitle,
-    .hero-description {
-        animation: none !important;
-        transition: none !important;
+        background-attachment: scroll;
     }
 }
 

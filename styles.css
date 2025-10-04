@@ -171,7 +171,6 @@ html {
     background: linear-gradient(135deg, #4fc3f7 0%, #29b6f6 25%, #03a9f4 50%, #81d4fa 75%, #e1f5fe 100%);
     color: white;
     position: relative;
-    overflow: hidden;
 }
 
 .hero::before {
@@ -356,74 +355,15 @@ html {
 }
 
 
-/* Éléments géométriques statiques - Plus de tremblements */
-.geometric-elements {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 1;
-}
-
-.geometric-shape {
-    position: absolute;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.shape-1 {
-    width: 120px;
-    height: 2px;
-    top: 25%;
-    left: 15%;
-    transform: rotate(15deg);
-}
-
-.shape-2 {
-    width: 2px;
-    height: 80px;
-    top: 60%;
-    right: 20%;
-    transform: rotate(-10deg);
-}
-
-.shape-3 {
-    width: 100px;
-    height: 2px;
-    bottom: 30%;
-    left: 60%;
-    transform: rotate(-20deg);
-}
-
-.shape-4 {
-    width: 2px;
-    height: 60px;
-    top: 40%;
-    left: 80%;
-    transform: rotate(25deg);
-}
+/* Éléments géométriques supprimés pour fluidité */
 
 /* Services Section */
 .services {
     padding: 100px 0;
     background: linear-gradient(180deg, #e1f5fe 0%, #f8fafc 100%);
-    position: relative;
 }
 
-.services::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: 
-        radial-gradient(circle at 10% 20%, rgba(79, 195, 247, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 90% 80%, rgba(129, 212, 250, 0.15) 0%, transparent 50%);
-    pointer-events: none;
-}
+/* Pseudo-élément services supprimé pour fluidité */
 
 .section-header {
     text-align: center;

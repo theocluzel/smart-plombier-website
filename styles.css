@@ -1070,9 +1070,46 @@ html {
         max-width: none;
     }
 
-    /* Services Section Mobile - Design Élégant */
+    /* Services Section Mobile - Design Élégant avec Effet Fluide */
     .services {
         padding: 3rem 0;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .services::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: 
+            radial-gradient(circle at 20% 80%, rgba(79, 195, 247, 0.1) 0%, transparent 50%),
+            radial-gradient(circle at 80% 20%, rgba(41, 182, 246, 0.1) 0%, transparent 50%),
+            radial-gradient(circle at 40% 40%, rgba(129, 212, 250, 0.05) 0%, transparent 50%);
+        pointer-events: none;
+        z-index: 0;
+        animation: fluidBackground 20s ease-in-out infinite;
+    }
+
+    @keyframes fluidBackground {
+        0%, 100% {
+            transform: translate(0, 0) rotate(0deg);
+            opacity: 0.3;
+        }
+        25% {
+            transform: translate(-10px, -15px) rotate(1deg);
+            opacity: 0.5;
+        }
+        50% {
+            transform: translate(15px, -10px) rotate(-1deg);
+            opacity: 0.4;
+        }
+        75% {
+            transform: translate(-5px, 20px) rotate(0.5deg);
+            opacity: 0.6;
+        }
     }
 
     .services-grid {
@@ -1082,6 +1119,8 @@ html {
         padding: 0 2rem;
         max-width: 600px;
         margin: 0 auto;
+        position: relative;
+        z-index: 1;
     }
 
     .service-card {
@@ -1089,14 +1128,40 @@ html {
         align-items: flex-start;
         padding: 1.5rem;
         margin-bottom: 0;
-        background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 250, 252, 0.9) 100%);
-        backdrop-filter: blur(10px);
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.95) 100%);
+        backdrop-filter: blur(15px);
         border: 1px solid rgba(79, 195, 247, 0.2);
-        box-shadow: 0 8px 25px rgba(79, 195, 247, 0.1);
-        border-radius: 16px;
-        transition: box-shadow 0.3s ease, border-color 0.3s ease;
+        box-shadow: 
+            0 8px 25px rgba(79, 195, 247, 0.1),
+            inset 0 1px 0 rgba(255, 255, 255, 0.8);
+        border-radius: 20px;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         position: relative;
         overflow: hidden;
+        cursor: pointer;
+        transform: translateZ(0);
+        will-change: transform, box-shadow;
+    }
+
+    .service-card::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+            90deg,
+            transparent,
+            rgba(79, 195, 247, 0.1),
+            transparent
+        );
+        transition: left 0.6s ease;
+        z-index: 1;
+    }
+
+    .service-card:hover::after {
+        left: 100%;
     }
 
     .service-card::before {
@@ -1111,12 +1176,21 @@ html {
     }
 
     .service-card:hover {
-        box-shadow: 0 12px 30px rgba(79, 195, 247, 0.15);
-        border-color: rgba(79, 195, 247, 0.3);
+        transform: translateY(-5px) scale(1.02);
+        box-shadow: 
+            0 20px 40px rgba(79, 195, 247, 0.2),
+            inset 0 1px 0 rgba(255, 255, 255, 0.9);
+        border-color: rgba(79, 195, 247, 0.4);
     }
 
     .service-card:hover::before {
-        width: 6px;
+        width: 8px;
+        background: linear-gradient(135deg, #4fc3f7 0%, #29b6f6 50%, #03a9f4 100%);
+    }
+
+    .service-card:active {
+        transform: translateY(-2px) scale(1.01);
+        transition: all 0.1s ease;
     }
 
     .service-icon {
@@ -1129,8 +1203,42 @@ html {
         align-items: center;
         justify-content: center;
         background: linear-gradient(135deg, #4fc3f7 0%, #29b6f6 100%);
-        border-radius: 16px;
-        box-shadow: 0 4px 15px rgba(79, 195, 247, 0.3);
+        border-radius: 20px;
+        box-shadow: 
+            0 8px 20px rgba(79, 195, 247, 0.3),
+            inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        position: relative;
+        overflow: hidden;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 2;
+    }
+
+    .service-icon::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: linear-gradient(
+            45deg,
+            transparent 30%,
+            rgba(255, 255, 255, 0.1) 50%,
+            transparent 70%
+        );
+        transform: rotate(45deg);
+        transition: transform 0.6s ease;
+    }
+
+    .service-card:hover .service-icon {
+        transform: scale(1.1) rotate(5deg);
+        box-shadow: 
+            0 12px 25px rgba(79, 195, 247, 0.4),
+            inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    }
+
+    .service-card:hover .service-icon::before {
+        transform: rotate(45deg) translate(50px, 50px);
     }
 
     .service-icon i {
@@ -1149,6 +1257,9 @@ html {
         color: #1e293b;
         font-weight: 700;
         letter-spacing: 0.5px;
+        transition: color 0.3s ease;
+        position: relative;
+        z-index: 2;
     }
 
     .service-card p {
@@ -1159,6 +1270,18 @@ html {
         display: block;
         overflow: visible;
         -webkit-line-clamp: unset;
+        transition: color 0.3s ease;
+        position: relative;
+        z-index: 2;
+    }
+
+    .service-card:hover h3 {
+        color: #0369a1;
+        text-shadow: 0 1px 2px rgba(79, 195, 247, 0.1);
+    }
+
+    .service-card:hover p {
+        color: #475569;
         -webkit-box-orient: unset;
     }
 

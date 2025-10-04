@@ -51,7 +51,108 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(el);
     });
     
+    // Initialiser les effets fluides pour mobile
+    createFluidParticles();
+    initRippleEffects();
 });
+
+// Effet fluide avec particules pour les services mobile
+function createFluidParticles() {
+    if (window.innerWidth > 768) return; // Seulement sur mobile
+    
+    const servicesSection = document.querySelector('.services');
+    if (!servicesSection) return;
+    
+    // Créer des particules flottantes
+    for (let i = 0; i < 8; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'fluid-particle';
+        particle.style.cssText = `
+            position: absolute;
+            width: ${Math.random() * 6 + 4}px;
+            height: ${Math.random() * 6 + 4}px;
+            background: linear-gradient(45deg, rgba(79, 195, 247, 0.3), rgba(129, 212, 250, 0.2));
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 1;
+            left: ${Math.random() * 100}%;
+            top: ${Math.random() * 100}%;
+            animation: floatParticle ${Math.random() * 20 + 15}s ease-in-out infinite;
+            animation-delay: ${Math.random() * 5}s;
+        `;
+        
+        servicesSection.appendChild(particle);
+    }
+}
+
+// Animation CSS pour les particules
+const style = document.createElement('style');
+style.textContent = `
+    @keyframes floatParticle {
+        0%, 100% {
+            transform: translate(0, 0) scale(1);
+            opacity: 0.3;
+        }
+        25% {
+            transform: translate(-20px, -30px) scale(1.2);
+            opacity: 0.6;
+        }
+        50% {
+            transform: translate(30px, -20px) scale(0.8);
+            opacity: 0.4;
+        }
+        75% {
+            transform: translate(-10px, 40px) scale(1.1);
+            opacity: 0.7;
+        }
+    }
+`;
+document.head.appendChild(style);
+
+// Effet de ripple au clic sur les cartes de service
+function initRippleEffects() {
+    document.querySelectorAll('.service-card').forEach(card => {
+        card.addEventListener('click', function(e) {
+            const ripple = document.createElement('span');
+            const rect = this.getBoundingClientRect();
+            const size = Math.max(rect.width, rect.height);
+            const x = e.clientX - rect.left - size / 2;
+            const y = e.clientY - rect.top - size / 2;
+            
+            ripple.style.cssText = `
+                position: absolute;
+                width: ${size}px;
+                height: ${size}px;
+                left: ${x}px;
+                top: ${y}px;
+                background: radial-gradient(circle, rgba(79, 195, 247, 0.3) 0%, transparent 70%);
+                border-radius: 50%;
+                transform: scale(0);
+                animation: ripple 0.6s ease-out;
+                pointer-events: none;
+                z-index: 3;
+            `;
+            
+            this.appendChild(ripple);
+            
+            setTimeout(() => {
+                ripple.remove();
+            }, 600);
+        });
+    });
+}
+
+// Animation CSS pour l'effet ripple
+const rippleStyle = document.createElement('style');
+rippleStyle.textContent = `
+    @keyframes ripple {
+        to {
+            transform: scale(2);
+            opacity: 0;
+        }
+    }
+`;
+document.head.appendChild(rippleStyle);
 
 // Initialisation d'EmailJS
 (function() {

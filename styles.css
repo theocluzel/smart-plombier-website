@@ -240,6 +240,29 @@ html {
     line-height: 1.7;
 }
 
+.hero-availability {
+    margin-bottom: 2rem;
+}
+
+.availability-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 25px;
+    padding: 0.75rem 1.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: white;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.availability-badge i {
+    font-size: 1.2rem;
+}
+
 .hero-zones {
     margin: 2rem 0;
     text-align: center;

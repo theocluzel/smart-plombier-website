@@ -175,33 +175,7 @@ html {
     z-index: 1;
 }
 
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: 
-        linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, transparent 50%),
-        linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.04) 50%, transparent 70%);
-    z-index: 0;
-    will-change: auto;
-}
-
-.hero::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: 
-        linear-gradient(90deg, rgba(33, 150, 243, 0.06) 0%, transparent 50%, rgba(33, 150, 243, 0.06) 100%),
-        linear-gradient(0deg, transparent 40%, rgba(255, 255, 255, 0.02) 50%, transparent 60%);
-    z-index: 0;
-    will-change: auto;
-}
+/* Pseudo-éléments hero supprimés pour éliminer le tremblement */
 
 .hero-container {
     max-width: 1200px;
@@ -212,11 +186,11 @@ html {
     gap: 4rem;
     align-items: center;
     position: relative;
-    z-index: 1;
+    z-index: 2;
 }
 
 .hero-content {
-    animation: slideInLeft 1s ease-out;
+    /* Animation supprimée pour éviter les conflits de rendu */
 }
 
 .hero-title {

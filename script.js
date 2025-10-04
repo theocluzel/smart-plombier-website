@@ -51,62 +51,8 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(el);
     });
     
-    // Initialiser les effets fluides pour mobile
-    createFluidParticles();
 });
 
-// Effet fluide avec particules pour les services mobile
-function createFluidParticles() {
-    if (window.innerWidth > 768) return; // Seulement sur mobile
-    
-    const servicesSection = document.querySelector('.services');
-    if (!servicesSection) return;
-    
-    // Créer des particules flottantes
-    for (let i = 0; i < 8; i++) {
-        const particle = document.createElement('div');
-        particle.className = 'fluid-particle';
-        particle.style.cssText = `
-            position: absolute;
-            width: ${Math.random() * 6 + 4}px;
-            height: ${Math.random() * 6 + 4}px;
-            background: linear-gradient(45deg, rgba(79, 195, 247, 0.3), rgba(129, 212, 250, 0.2));
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 1;
-            left: ${Math.random() * 100}%;
-            top: ${Math.random() * 100}%;
-            animation: floatParticle ${Math.random() * 20 + 15}s ease-in-out infinite;
-            animation-delay: ${Math.random() * 5}s;
-        `;
-        
-        servicesSection.appendChild(particle);
-    }
-}
-
-// Animation CSS pour les particules
-const style = document.createElement('style');
-style.textContent = `
-    @keyframes floatParticle {
-        0%, 100% {
-            transform: translate(0, 0) scale(1);
-            opacity: 0.3;
-        }
-        25% {
-            transform: translate(-20px, -30px) scale(1.2);
-            opacity: 0.6;
-        }
-        50% {
-            transform: translate(30px, -20px) scale(0.8);
-            opacity: 0.4;
-        }
-        75% {
-            transform: translate(-10px, 40px) scale(1.1);
-            opacity: 0.7;
-        }
-    }
-`;
-document.head.appendChild(style);
 
 
 // Initialisation d'EmailJS

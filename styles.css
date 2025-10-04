@@ -1120,12 +1120,14 @@ html {
     }
 
     .service-card:hover {
+        transform: translateY(-3px);
         box-shadow: 0 12px 30px rgba(79, 195, 247, 0.15);
         border-color: rgba(79, 195, 247, 0.3);
     }
 
     .service-card:hover::before {
-        width: 6px;
+        width: 8px;
+        background: linear-gradient(135deg, #4fc3f7 0%, #29b6f6 50%, #03a9f4 100%);
     }
 
     .service-icon {
@@ -1149,7 +1151,7 @@ html {
     }
 
     .service-card:hover .service-icon {
-        transform: scale(1.05);
+        transform: scale(1.1) rotate(3deg);
         box-shadow: 0 8px 20px rgba(79, 195, 247, 0.4);
     }
 
@@ -1194,7 +1196,11 @@ html {
 
     .service-card:hover p {
         color: #475569;
-        -webkit-box-orient: unset;
+    }
+
+    .service-card:active {
+        transform: translateY(-1px) scale(0.98);
+        transition: all 0.1s ease;
     }
 
     /* Footer Mobile - Design Amélioré */

@@ -89,7 +89,7 @@ if (contactForm) {
             phone: data.phone || 'Non renseigné',
             service: data.service,
             message: data.message,
-            to_email: 'contact@smartplombier.fr' // À changer par votre vraie adresse email
+            to_email: 'smartplombier.92@gmail.com'
         };
         
         // Envoi de l'email
@@ -154,28 +154,16 @@ const statsObserver = new IntersectionObserver((entries) => {
                         }
                         stat.textContent = count;
                     }, 20);
-                } else if (text === '100%') {
-                    // Animation pour 100%
-                    stat.textContent = '0%';
-                    let count = 0;
-                    const interval = setInterval(() => {
-                        count += 5;
-                        stat.textContent = count + '%';
-                        if (count >= 100) {
-                            clearInterval(interval);
-                            stat.textContent = '100%';
-                        }
-                    }, 30);
-                } else if (text === '24/7') {
-                    // Animation pour 24/7 - commence avec des chiffres aléatoires
-                    const randomNumbers = ['12/5', '18/3', '6/9', '15/2', '8/4', '22/1', '3/6', '19/8', '7/11', '24/7'];
+                } else if (text === '7j/7') {
+                    // Animation pour 7j/7
+                    const variants = ['1j/7', '2j/7', '3j/7', '4j/7', '5j/7', '6j/7', '7j/7'];
                     let index = 0;
                     const interval = setInterval(() => {
-                        stat.textContent = randomNumbers[index];
+                        stat.textContent = variants[index];
                         index++;
-                        if (index >= randomNumbers.length) {
+                        if (index >= variants.length) {
                             clearInterval(interval);
-                            stat.textContent = '24/7';
+                            stat.textContent = '7j/7';
                         }
                     }, 150);
                 }
